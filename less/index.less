@@ -50,10 +50,162 @@ table {
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html, body {
-    height: 100%;
+	height: 100%;
+	background-color: bisque;
 }
+
+@antcolor:  rgb(110, 8, 42);
+@antfont: 	'Gayathri', sans-serif;
+@backcolor: darken(gold, 10%);
+
+
+
+.flexit(@justify: space-around){
+	display: flex;
+	justify-content: @justify;
+
+	@media (max-width: 500px) {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+
+
+
+.container{
+	width: 90%;
+	height: auto;
+	margin: 0 auto;
+	// border: 1px solid black;
+	background-color: white;
+	animation-name: slidein; 
+	animation-duration: 1.1s;
+	animation-timing-function: linear;
+	background-image: url("https://images-na.ssl-images-amazon.com/images/I/71P5DgHCGvL._SY606_.jpg"), url("https://images-na.ssl-images-amazon.com/images/I/71P5DgHCGvL._SY606_.jpg");
+	background-size: 10%;
+	background-position:  left center, right center;
+	background-repeat: no-repeat;
+}
+
+header nav {
+	padding: 1.5%;
+	margin: 0 auto;
+	.flexit;
+	align-items: center;
+	background-color: rgba(155, 155, 155, 0.644);
+	border-bottom: 3px solid @antcolor;
+
+		img {
+			width: 2%;
+			height: auto;
+
+			@media (max-width: 500px){
+				align-self: auto;
+				width: 7%;
+			}
+		}
+
+		a {
+			text-decoration: none;
+			font-size: 1rem;
+			color: @antcolor;
+			align-self: flex-end;
+			padding: .5rem;
+		}
+
+		a:hover{
+			color: rgb(189, 189, 189);
+			background-color: @antcolor;
+		}
+}
+
+@keyframes slidein {
+	0% {opacity: 0;  }
+	25%{opacity: .3; }
+	50%{opacity: .7; }
+	75%{opacity: 1; }
+
+}
+.aboutme{
+	text-align: center;
+	border-top: none;
+	height: 300px;
+	
+	h1{
+		font-family: @antfont;
+		margin-top: 1%;
+		padding: .4rem;
+		font-size: 3.5rem;
+		text-decoration: underline;
+		color: @antcolor;
+		animation: slidein;
+		animation-duration: 1s;
+		animation-timing-function: linear;
+		background-color: black;
+	}
+
+	p{
+		font-size: 1.5rem;
+		margin-top: 1%;
+		padding-bottom: 1%;
+		text-shadow: 2px 2px 8px rgb(211, 2, 2);
+		color: black;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	}
+}
+
+
+
+.aboutsection {
+	.flexit;
+}
+
+.antheader(@antcolor, @backcolor ){
+	color: @antcolor;
+	background-color: @backcolor;
+}
+
+.skills, .whistory{
+	width: 45%;
+	opacity: .8;
+	font-family: @antfont;
+	padding: .7rem;
+
+	
+
+	 h2 {
+		font-size: 1.5rem;
+		.antheader(@antcolor, @backcolor);
+		text-align: center;
+		padding: .5rem;
+
+	}
+
+	h4{
+		font-size: 1.3rem;
+		.antheader(@antcolor, @backcolor);
+	}
+
+	li{
+		padding: 1% 0% 1% 0%;
+		font-size: 1.1rem;
+	}
+}
+
+.contact{
+	text-align: center;
+	margin-bottom: 1rem;
+	.antheader(@antcolor, @backcolor);
+
+	a{
+		color: @antcolor;
+		font-size: 2rem;
+	}
+}
+
 
